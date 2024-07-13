@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                 docker pull 590183962065.dkr.ecr.us-east-1.amazonaws.com/python-project:${BUILD_NUMBER}
-                docker run -itd -p 8080:8080 --name python-project 590183962065.dkr.ecr.us-east-1.amazonaws.com/python-project:${BUILD_NUMBER}
+                docker run -itd -p 3000:3000 --name python-project 590183962065.dkr.ecr.us-east-1.amazonaws.com/python-project:${BUILD_NUMBER}
                 '''
             }
         }
