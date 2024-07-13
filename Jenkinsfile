@@ -14,8 +14,7 @@ pipeline {
         stage ("deploy") {
             steps {
                 sh '''
-                docker pull 590183962065.dkr.ecr.us-east-1.amazonaws.com/python-project:${BUILD_NUMBER}
-                docker run -itd -p 8080:8080 --name python-project 590183962065.dkr.ecr.us-east-1.amazonaws.com/python-project:${BUILD_NUMBER}
+                ssh -i /var/lib/jenkins/us_key_pair.pem -o StrickHostKeyChecking=no ubuntu@ec2-35-172-191-143.compute-1.amazonaws.com 'bash -s' < ./deploy.sh \${BUILD_NUMBER}
                 '''
             }
         }
