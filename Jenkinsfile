@@ -15,7 +15,7 @@ pipeline {
         stage ("deploy") {
             steps {
                 sh '''
-                ssh -i /var/lib/jenkins/us_key_pair.pem -o StrickHostKeyChecking=no ubuntu@ec2-35-172-191-143.compute-1.amazonaws.com 'bash -s' < ./deploy.sh \${BUILD_NUMBER}
+                ssh -i /var/lib/jenkins/us_key_pair.pem -o StrictHostKeyChecking=no ubuntu@ec2-35-172-191-143.compute-1.amazonaws.com 'bash -s' < ./deploy.sh \${BUILD_NUMBER}
                 '''
             }
         }
