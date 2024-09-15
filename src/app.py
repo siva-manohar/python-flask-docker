@@ -1,6 +1,6 @@
 from flask import Flask,render_template
 import socket
-
+import math
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,7 +8,8 @@ def index():
     try:
         host_name = socket.gethostname()
         host_ip = socket.gethostbyname(host_name)
-        return render_template('index.html', hostname=host_name, ip=host_ip)
+        result=math.pow(6,3)
+        return render_template('index.html', hostname=host_name, ip=host_ip,fun_result=result)
     except:
         return render_template('error.html')
 
