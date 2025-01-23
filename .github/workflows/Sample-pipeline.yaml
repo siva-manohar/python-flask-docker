@@ -1,0 +1,28 @@
+name: scientific calculator for development branch
+
+on:
+  push:
+    branches:
+      - development
+      - master
+
+jobs:
+  script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v4
+
+      - name: running the script
+        run: |
+          bash script.sh
+
+  script-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v4
+
+      - name: running the second script
+        run: |
+          bash script-2.sh
